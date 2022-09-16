@@ -1,35 +1,13 @@
 import React from "react";
 
 const LoginForm = (props) => {
-   const handleChange = (e) => {
-      // if (props.formType === "username") {
-      //    props.setDetails((prev) => {
-      //       const updatedDetails = {
-      //          ...prev,
-
-      //          name: e.target.value,
-      //       };
-
-      //       return updatedDetails;
-      //    });
-      // } else if (props.formType === "password") {
-      //    props.setDetails((prev) => {
-      //       const updatedDetails = {
-      //          ...prev,
-
-      //          password: e.target.value,
-      //       };
-
-      //       return updatedDetails;
-      //    });
-      // }
+   const changeHandler = (e) => {
       props.setDetails(e.target.value);
       props.setIsError(false);
    };
 
-   const handleFocus = () => {
+   const focusHandler = () => {
       props.setIsPwFocused?.(true);
-      props.setIsError(false);
    };
 
    return (
@@ -45,12 +23,12 @@ const LoginForm = (props) => {
             }
             name={props.formType}
             id={props.formType}
-            onChange={handleChange}
+            onChange={changeHandler}
             onBlur={() => props.setIsPwFocused?.(false)}
-            onFocus={handleFocus}
+            onFocus={focusHandler}
             ref={props?.refInput}
             value={props.details}
-            autoComplete="false"
+            autoComplete="off"
          />
          <label
             className={props.details ? "Active" : ""}
