@@ -1,7 +1,8 @@
-# Riot games login screen project
+### Riot Games Login Project Client
 
 <aside>
-💡 Login screen inspired by Riot Games Client https://testers4bono.netlify.app/
+💡 Login screen inspired by Riot Games Client [https://testers4bono.netlify.app/](https://testers4bono.netlify.app/)
+GitHub Dev Source [https://github.com/ipod1g/testers/tree/main/loginscreen/simple-login](https://github.com/ipod1g/testers/tree/main/loginscreen/simple-login)
 
 </aside>
 
@@ -15,14 +16,21 @@
 -  CSS
 -  JavaScript
 -  React
+   -  Libraries: React Hooks, ReactDom, react-select, react-transition-group, react-router-dom
 -  npm
--  Netlify
+-  Netlify (Frontend) & Heroku (Backend)
+-  express, axios, cors
+-  Node.js
+-  MySQL + sequelize
+-  Insomnia
 
 ### Notable functions
 
 -  Replica of Riot Games Client
--  Local login authorization (update with axios soon)
--  Interactive UI
+-  Registration on MySQL database
+-  Server login authorization (no hashing on password yet)
+-  Interactive and Responsive UI
+-  Optimizations for loading time
 
 # Process
 
@@ -36,6 +44,15 @@
    -  Focus interaction - on floating label animation
    -  Password toggle view
 -  Added personal touch on maintaining the aspect ratio of the hero art upon responsive rescaling
+-  Refactor process with Sim Ho and Steve using Live-share for feedback
+-  Selected MySQL as the choice of DBMS instead of MongoDB following these info from IBM
+   -  **MySQL is well-suited for the following use cases:**
+      -  High-traffic sites, such as e-commerce or social sites
+      -  Sites that require high security protocols, such as government-based and compliance-heavy industries
+   -  **MongoDB is optimal for the following use cases:**
+      -  Legacy businesses that seek to upgrade big data
+      -  Content management systems (CMS)
+      -  High-query sites and applications, such as analytics apps
 
 ### Problems
 
@@ -50,13 +67,29 @@
 -  Faced troubles with deployment, but fixed with creating netlify.toml file locally
    -  Had to include not only redirect but build command here too
 -  Issues with non secured http font link… solved by using import/link to @fontface
+   -  Lazy web font loading causes some render delays
 -  setSelectionRange was not working by function of onClick → useEffect resolved it without using it for cursor focus
+-  passing object props and recognizing change of state was an issue due to the way react reads it
+-  React-select library - blur on selection
+-  To improve performance, minify was considered but realized that jsx format doesn’t auto minify on React unlike js
 
 ### Lessons
 
 -  Introduction to component based coding with React
-   -  Refactored after achieveing the result interaction
+   -  Refactored after achieving the result interaction
 -  Utilized React Hooks and knowledge of React components for more manageable code
+-  Used React Portal for modal to maintain event delegation provided but render above all
+-  react transition group animation library → had trouble using translate 50% centered for uprising animation
+-  used react-select library
+-  Utilize Lighthouse to check and optimize performance
+   -  Before font preloading
+      ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e0766cd5-1297-4139-8e89-e6e959e2fc2c/Untitled.png)
+   -  After font preloading
+      ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45e4e083-2dac-49ed-9b83-cb12ed166be1/Untitled.png)
+-  Setting up a light-weight backend with Node.js + MySQL
+   -  Learnt deploying with Heroku
+   -  Dealing with requests, response
+   -  Insomnia to check for backend functions
 
 # Version check
 
@@ -67,88 +100,29 @@
    -  Complete login form interactions and resolved all known bugs
       -  Does not include version button and touch interactions yet
    -  Simple authorization in hard coded data base
-   -  Partially responsive design
+   -  Partially responsive design - only on the hero splash art
 -  v1.1.0
    -  Updated on 5 Sep 2022
    -  Started refactoring for cleaner and efficient code → Utilize more of React components and less complexity in jsx file
       -  Live-shared with Sim Ho for review session
+-  v1.2.0
+   -  Updated on 12 Sep 2022
+   -  Introduce settings & navigation menu on the right-side
+      -  Includes modal menu and selection option
+         -  Does not actually change the language yet
+-  v2.1.0
+   -  Updated on 17 Sep 2022
+   -  Introduce registration page
+      -  UI designed with reference from Riot Games
+   -  Login form now interacts with a backend (Node.js + MySQL)
+      -  Deployed with Heroku
+   -  Minor clean-up of coding
+   -  Slight upgrade to responsive design
+      -  Modal still needs work
 
 # Future implementation
 
 ---
 
--  Will upgrade to use back end for database management in the future
 -  Support fully responsive design by adding my touch - since source login screen doesn’t support responsive design
-
----
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-  Login loading response
