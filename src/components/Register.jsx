@@ -24,7 +24,7 @@ const Register = () => {
    }, [passwordShown]);
 
    const register = () => {
-      Axios.post("http://localhost:3001/register", {
+      Axios.post("https://riot-clone-login-api.herokuapp.com/register", {
          username: usernameReg,
          password: passwordReg,
       }).then(

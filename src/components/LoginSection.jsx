@@ -19,7 +19,7 @@ function LoginSection() {
    // const [loginStatus, setLoginStatus] = useState("");
 
    const login = () => {
-      Axios.post("http://localhost:3001/login", {
+      Axios.post("https://riot-clone-login-api.herokuapp.com/login", {
          username: username,
          password: password,
       }).then(
