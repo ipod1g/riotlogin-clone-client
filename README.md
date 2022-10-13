@@ -1,8 +1,8 @@
-### Riot Games Login Project Client
+# Riot games login screen project
 
 <aside>
 💡 Login screen inspired by Riot Games Client [https://testers4bono.netlify.app/](https://testers4bono.netlify.app/)
-GitHub Dev Source [https://github.com/ipod1g/testers/tree/main/loginscreen/simple-login](https://github.com/ipod1g/testers/tree/main/loginscreen/simple-login)
+GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://github.com/ipod1g/riotlogin-clone-client)
 
 </aside>
 
@@ -19,10 +19,9 @@ GitHub Dev Source [https://github.com/ipod1g/testers/tree/main/loginscreen/simpl
    -  Libraries: React Hooks, ReactDom, react-select, react-transition-group, react-router-dom
 -  npm
 -  Netlify (Frontend) & Heroku (Backend)
--  express, axios, cors
--  Node.js
--  MySQL + sequelize
--  Insomnia
+-  Node.js (express) , axios, cors
+-  RDBMS (MySQL) + sequelize
+-  Insomnia, LambdaTest (UI test framework)
 
 ### Notable functions
 
@@ -72,6 +71,7 @@ GitHub Dev Source [https://github.com/ipod1g/testers/tree/main/loginscreen/simpl
 -  passing object props and recognizing change of state was an issue due to the way react reads it
 -  React-select library - blur on selection
 -  To improve performance, minify was considered but realized that jsx format doesn’t auto minify on React unlike js
+-  Had this funny error with CSS on modal, turns out it was due to a misinputted ; in between the classes that stopped it from reading the styles underneath
 
 ### Lessons
 
@@ -90,6 +90,9 @@ GitHub Dev Source [https://github.com/ipod1g/testers/tree/main/loginscreen/simpl
    -  Learnt deploying with Heroku
    -  Dealing with requests, response
    -  Insomnia to check for backend functions
+-  On deployment, iOS device had input value not filling bug
+   -  Turns out it was stylesheet reset and was re-deployed
+      -  [https://stackoverflow.com/questions/25610517/ios-devices-issues-with-html-form-input-type-text](https://stackoverflow.com/questions/25610517/ios-devices-issues-with-html-form-input-type-text)
 
 # Version check
 
@@ -119,10 +122,40 @@ GitHub Dev Source [https://github.com/ipod1g/testers/tree/main/loginscreen/simpl
    -  Minor clean-up of coding
    -  Slight upgrade to responsive design
       -  Modal still needs work
+-  v2.1.1
+   -  Updated on 18 Sep 2022
+   -  Update registration page styling
+   -  Modal responsiveness upgrade
+   -  Password toggle bug still present on iOS
+   -  Update Favicon
+-  v2.2.0
+   -  Update on 19 Sep 2022
+   -  Add loading animation when waiting for server response
+   -  Update modal responsiveness
+   -  Password toggle bug on iOS devices
+   -  Navigate back to sign-in on register success
 
 # Future implementation
 
 ---
 
--  Support fully responsive design by adding my touch - since source login screen doesn’t support responsive design
--  Login loading response
+-  Bug fix on iOS mobile devices (On password toggle)
+-  Multi-language support?
+-  Click remove errorstate but focusAction to not trigger that
+-  Heroku transfer → to new backend deploy + hash passwords
+
+-  [x] Hover effect on login input field → perhaps generalized hover on all interactives
+-  [x] responsive resize modal / form
+   -  [ ] partially complete, need rework on all the scaling units
+   -  [ ] move font to globals.css?
+-  [x] form-group wrapper to make toggle btn relative to the wrapper
+-  [x] focus back to username inputfield on error
+-  [x] Improve with css cascade knowledge on Settingstab.jsx - isolate css stylings from jsx to relevant css
+-  [x] uncaught typeerror on fixing the toggle hide button for pw
+-  [x] clickOutside trigger on modal
+-  [x] register page, go back arrow for home
+-  [x] error msg interaction for server
+-  [ ] pop up after successful registration
+-  [ ] deal with overflow-y
+-  [ ] login success? do what?
+-  [ ] Esc to escape modal
