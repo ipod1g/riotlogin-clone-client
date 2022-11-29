@@ -5,6 +5,7 @@ import "./LoginSection.css";
 import SocialLoginButton from "./SocialLoginButton";
 import LoginForm from "./LoginForm";
 import Loading from "./Loading";
+import Version from "./Version";
 
 function LoginSection() {
    const [username, setUsername] = useState("");
@@ -21,7 +22,7 @@ function LoginSection() {
    // const [loginStatus, setLoginStatus] = useState("");
 
    const login = () => {
-      Axios.post("https://riot-clone-login-api.herokuapp.com/login", {
+      Axios.post("http://localhost:3001/login", {
          username: username,
          password: password,
       }).then(
@@ -46,6 +47,11 @@ function LoginSection() {
       login();
       setIsLoading(true);
       e.preventDefault();
+      // setDetails((prev) => {
+      //    const updatedDetails = { ...prev, password: "" };
+      //    return updatedDetails;
+      // });
+      // WILL NOW ACTUALLY CONNECT TO DB
    };
 
    useEffect(() => {
@@ -183,7 +189,7 @@ function LoginSection() {
                            <Link to="/register">create account</Link>
                         </li>
                      </ul>
-                     <div className="version">V57.0.0</div>
+                     <Version />
                   </nav>
                </footer>
             </section>
