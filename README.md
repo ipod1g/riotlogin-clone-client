@@ -1,8 +1,8 @@
 # Riot games login screen project
 
 <aside>
-💡 Login screen inspired by Riot Games Client [https://testers4bono.netlify.app/](https://testers4bono.netlify.app/)
-GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://github.com/ipod1g/riotlogin-clone-client)
+💡 Login screen inspired by Riot Games Client - (https://testers4bono.netlify.app/)
+GitHub Dev Source - https://github.com/ipod1g/riotlogin-clone-client
 
 </aside>
 
@@ -19,7 +19,7 @@ GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://git
    -  Libraries: React Hooks, ReactDom, react-select, react-transition-group, react-router-dom
 -  npm
 -  Netlify (Frontend) & Heroku (Backend)
--  Node.js (express) , axios, cors
+-  Node.js (express) ,axios, cors
 -  RDBMS (MySQL) + sequelize
 -  Insomnia, LambdaTest (UI test framework)
 
@@ -27,7 +27,7 @@ GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://git
 
 -  Replica of Riot Games Client
 -  Registration on MySQL database
--  Server login authorization (no hashing on password yet)
+-  Server login authorization with hashing and JWT
 -  Interactive and Responsive UI
 -  Optimizations for loading time
 
@@ -80,12 +80,7 @@ GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://git
 -  Utilized React Hooks and knowledge of React components for more manageable code
 -  Used React Portal for modal to maintain event delegation provided but render above all
 -  react transition group animation library → had trouble using translate 50% centered for uprising animation
--  used react-select library
 -  Utilize Lighthouse to check and optimize performance
-   -  Before font preloading
-      ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e0766cd5-1297-4139-8e89-e6e959e2fc2c/Untitled.png)
-   -  After font preloading
-      ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45e4e083-2dac-49ed-9b83-cb12ed166be1/Untitled.png)
 -  Setting up a light-weight backend with Node.js + MySQL
    -  Learnt deploying with Heroku
    -  Dealing with requests, response
@@ -93,6 +88,7 @@ GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://git
 -  On deployment, iOS device had input value not filling bug
    -  Turns out it was stylesheet reset and was re-deployed
       -  [https://stackoverflow.com/questions/25610517/ios-devices-issues-with-html-form-input-type-text](https://stackoverflow.com/questions/25610517/ios-devices-issues-with-html-form-input-type-text)
+-  Implement hashing and JWT authentication using bcrypt and jwt-token
 
 # Version check
 
@@ -134,16 +130,22 @@ GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://git
    -  Update modal responsiveness
    -  Password toggle bug on iOS devices
    -  Navigate back to sign-in on register success
+-  v3.1.0
+   -  Update on 7 Sep 2022
+   -  Add hashing and JWT authentication
+   -  Prevent duplicate username
+   -  Add login success modal
 
 # Future implementation
 
 ---
 
--  Bug fix on iOS mobile devices (On password toggle)
+-  Bug fix on iOS mobile devices
 -  Multi-language support?
 -  Click remove errorstate but focusAction to not trigger that
--  Heroku transfer → to new backend deploy + hash passwords
+-  Heroku transfer → to new backend deploy
 
+-  [ ] Module css → loginform.css is crowded
 -  [x] Hover effect on login input field → perhaps generalized hover on all interactives
 -  [x] responsive resize modal / form
    -  [ ] partially complete, need rework on all the scaling units
@@ -155,7 +157,9 @@ GitHub Dev Source [https://github.com/ipod1g/riotlogin-clone-client](https://git
 -  [x] clickOutside trigger on modal
 -  [x] register page, go back arrow for home
 -  [x] error msg interaction for server
--  [ ] pop up after successful registration
--  [ ] deal with overflow-y
--  [ ] login success? do what?
+-  [x] pop up after successful registration
+-  [x] deal with overflow-y
+-  [x] login success? do what?
 -  [ ] Esc to escape modal
+-  [x] Bug on fixed CSS elements
+-  [x] query matching system so far so implement - jwt / hashing
