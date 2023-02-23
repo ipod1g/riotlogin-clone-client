@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 // fetch the version from the internet or smtg
 const Version = () => {
-   return <div className="version">V60.0.10</div>;
+  return <div className="version">V63.0.9</div>;
 };
 
 export default Version;
